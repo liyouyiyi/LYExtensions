@@ -13,6 +13,7 @@
 
 - (BOOL)popToViewController:(NSString *)viewControllerName
 {
+    NSLog(@"viewControllerName = %@", viewControllerName);
     if (!viewControllerName || [[viewControllerName trimSpaceString] isEqualToString:@""]) {
         return NO;
     }
