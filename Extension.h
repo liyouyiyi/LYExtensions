@@ -14,7 +14,6 @@
 
 
 #import "NSString+Custom.h"
-#import "NSString+Custome.h"
 #import "NSArray+Custom.h"
 #import "NSDictionary+Custom.h"
 
