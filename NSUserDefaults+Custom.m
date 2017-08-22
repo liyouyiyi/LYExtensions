@@ -8,7 +8,6 @@
 
 #import "NSUserDefaults+Custom.h"
 #import "NSDate+Formater.h"
-#import "User.h"
 #import "NSString+Custom.h"
 
 static NSString * const kVersion  = @"user_default_version";
@@ -82,37 +81,6 @@ static NSString * const kNeedAutoLogin = @"key_need_auto_login";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:isRememberPassword forKey:kIsRememberPassword];
     [userDefaults synchronize];
-}
-
-+ (void)saveUser:(User *)user
-{
-    NSString *username = @"";
-    NSString *password = @"";
-    if (user) {
-        username = user.username;
-        password = user.password;
-    }
-    [self saveUsername:username password:password];
-}
-
-+ (void)saveUsername:(NSString *)username password:(NSString *)password
-{
-    [[self standardUserDefaults] setObject:username forKey:kUsername];
-    [[self standardUserDefaults] setObject:password forKey:kPassword];
-    [[self standardUserDefaults] synchronize];
-}
-
-+ (User *)loadDefaultUser
-{
-    NSString *username = [[self standardUserDefaults] stringForKey:kUsername];
-    NSString *password = [[self standardUserDefaults] stringForKey:kPassword];
-//    if (!username || username.length <= 0 || !password || password.length <= 0) {
-//        return nil;
-//    }
-    User *user = [[User alloc] init];
-    user.username = username;
-    user.password = password;
-    return user;
 }
 
 + (void)saveMotionEndTime:(NSInteger)endtime userId:(NSString *)userId uuid:(NSString *)uuid;

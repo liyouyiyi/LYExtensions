@@ -10,7 +10,6 @@
 
 
 
-@class User;
 @interface NSUserDefaults (Custom)
 
 /*!
@@ -38,18 +37,8 @@
  */
 + (void)setIsRememberPassword:(BOOL)isRememberPassword;
 
-/*!
- * 保存用户信息,只保存手机号和密码
- */
-+ (void)saveUser:(User *)user;
-/*!
- * 保存用户信息
- */
-+ (void)saveUsername:(NSString *)username password:(NSString *)password;
-/*!
- * 加载用户信息
- */
-+ (User *)loadDefaultUser;
+
+
 
 /*!
  * 保存运动结束的时间， userid+uuid为key
