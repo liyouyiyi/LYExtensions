@@ -11,13 +11,39 @@
 
 
 #import "Constant.h"
-#import "UIImage+Custom.h"
-#import "NSDate+Formater.h"
+
+
+#import "NSString+Custom.h"
 #import "NSString+Custome.h"
-#import "UIView+Custom.h"
+#import "NSArray+Custom.h"
+#import "NSDictionary+Custom.h"
+
+
+#import "NSDate+Formater.h"
+#import "NSUserDefaults+Custom.h"
+
+
+#import "UIScreen+Custom.h"
+#import "UIImage+Custom.h"
+#import "UIDevice+Custom.h"
+#import "UIColor+Custom.h"
+
+
 #import "UIButton+Custom.h"
+#import "UIImageView+Custom.h"
 #import "UILabel+Custom.h"
-#import "UIViewController+Custom.h"
+#import "UISegmentedControl+Custom.h"
+#import "UITextField+Custom.h"
+#import "UITextView+Custom.h"
+#import "UIView+Custom.h"
+
+
 #import "UINavigationController+Custom.h"
+#import "UIViewController+Custom.h"
+#import "UIViewController+BackButtonHandler.h"
+
+
+
+
 
 #endif
