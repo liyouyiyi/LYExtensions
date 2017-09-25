@@ -14,6 +14,7 @@ UIColor * ColorRGB(float red, float green, float blue);
 UIColor * ColorRGBA(float red, float green, float blue, float alpha);
 
 + (UIColor *)baseBackgroundColor;
++ (UIColor *)grayBackgroundColor;
 
 + (UIColor *)navigationBarColor;
 + (UIColor *)rightLabelColor;

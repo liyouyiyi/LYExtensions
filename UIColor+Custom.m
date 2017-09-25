@@ -34,6 +34,11 @@ UIColor * ColorRGBA(float red, float green, float blue, float alpha)
     return [UIColor colorWithRed:14/255.0 green:14/255.0 blue:14/255.0 alpha:1];
 }
 
++ (UIColor *)grayBackgroundColor
+{
+    return [UIColor colorWithRed:26.0/255.0 green:26.0/255.0 blue:26.0/255.0 alpha:1];
+}
+
 + (UIColor *)navigationBarColor
 {
     return ColorRGB(0x12, 0x9c, 0xef);
@@ -61,7 +66,9 @@ UIColor * ColorRGBA(float red, float green, float blue, float alpha)
 
 + (UIColor *)placeholderColor;
 {
-    return [UIColor colorWithRed:219.0/255.0 green:219.0/255.0 blue:219.0/255.0 alpha:1];
+//    return [UIColor colorWithRed:219.0/255.0 green:219.0/255.0 blue:219.0/255.0 alpha:1];
+//    return [UIColor colorWithRed:0x7E/255.0 green:0x7E/255.0 blue:0x7E/255.0 alpha:1];
+    return [UIColor whiteColor];
 }
 
 @end

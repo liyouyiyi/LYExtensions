@@ -126,8 +126,17 @@ FOUNDATION_EXPORT NSString *NSStringFromFloat(float floatValue);
 - (BOOL)isValidateEmail;
 + (BOOL)isValidateEmail:(NSString *)email;
 
+/*!
+ * 是否为中文字符串
+ */
 - (BOOL)isChineseString;
 + (BOOL)isChineseString:(NSString *)string;
+
+/*!
+ * 是否包含中文
+ */
+- (BOOL)isContainsChineseString;
++ (BOOL)isContainsChineseString:(NSString *)string;
 
 //获取拼音首字母(传入汉字字符串, 返回大写拼音首字母)
 + (NSString *)firstCharactor:(NSString *)aString;
@@ -146,6 +155,11 @@ FOUNDATION_EXPORT NSString *NSStringFromFloat(float floatValue);
 - (BOOL)isOnlyDigitLetter;
 
 + (BOOL)isPwd:(NSString*)string;
+
+/*!
+ * 是否包含表情
+ */
++ (BOOL)isContainsTwoEmoji:(NSString *)string;
 
 /*!
  * 把时间戳转成， xx时xx分xx秒

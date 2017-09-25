@@ -8,6 +8,7 @@
 
 #import "NSUserDefaults+Custom.h"
 #import "NSDate+Formater.h"
+#import "User.h"
 #import "NSString+Custom.h"
 
 static NSString * const kVersion  = @"user_default_version";
@@ -28,6 +29,8 @@ static NSString * const kRecentCourtType = @"key_recent_court_type";
 static NSString * const kIsHadShowMapMark = @"key_is_had_show_map_mark";
 
 static NSString * const kNeedAutoLogin = @"key_need_auto_login";
+
+static NSString * const kIsInMotion = @"key_is_in_motion";
 
 @implementation NSUserDefaults (Custom)
 
@@ -81,6 +84,37 @@ static NSString * const kNeedAutoLogin = @"key_need_auto_login";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:isRememberPassword forKey:kIsRememberPassword];
     [userDefaults synchronize];
+}
+
++ (void)saveUser:(User *)user
+{
+    NSString *username = @"";
+    NSString *password = @"";
+    if (user) {
+        username = user.username;
+        password = user.password;
+    }
+    [self saveUsername:username password:password];
+}
+
++ (void)saveUsername:(NSString *)username password:(NSString *)password
+{
+    [[self standardUserDefaults] setObject:username forKey:kUsername];
+    [[self standardUserDefaults] setObject:password forKey:kPassword];
+    [[self standardUserDefaults] synchronize];
+}
+
++ (User *)loadDefaultUser
+{
+    NSString *username = [[self standardUserDefaults] stringForKey:kUsername];
+    NSString *password = [[self standardUserDefaults] stringForKey:kPassword];
+//    if (!username || username.length <= 0 || !password || password.length <= 0) {
+//        return nil;
+//    }
+    User *user = [[User alloc] init];
+    user.username = username;
+    user.password = password;
+    return user;
 }
 
 + (void)saveMotionEndTime:(NSInteger)endtime userId:(NSString *)userId uuid:(NSString *)uuid;
@@ -157,6 +191,24 @@ static NSString * const kNeedAutoLogin = @"key_need_auto_login";
 {
     BOOL needAutoLogin = [[self standardUserDefaults] boolForKey:kNeedAutoLogin];
     return needAutoLogin;
+}
+
++ (void)saveIsInMotion:(BOOL)isInMotion userId:(NSString *)userId;
+{
+    if (!userId || userId.length <= 0) {
+        return;
+    }
+    [[self standardUserDefaults] setBool:isInMotion forKey:[NSString stringWithFormat:@"%@_%@", kIsInMotion, userId]];
+    [[self standardUserDefaults] synchronize];
+}
+
++ (BOOL)isInMotionWithUserId:(NSString *)userId
+{
+    if (!userId || userId.length <= 0) {
+        return NO;
+    }
+    BOOL isInMotion = [[self standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@_%@", kIsInMotion, userId]];
+    return isInMotion;
 }
 
 
