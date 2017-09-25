@@ -19,7 +19,6 @@
 
 
 #import "NSDate+Formater.h"
-#import "NSUserDefaults+Custom.h"
 
 
 #import "UIScreen+Custom.h"
