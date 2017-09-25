@@ -16,7 +16,7 @@
 + (BOOL)isValidOfArray:(NSArray *)array
 {
     if (!array || [array isKindOfClass:[NSNull class]]) return NO;
-    return YES;
+    return YES ;
 }
 
 - (BOOL)isValid
