@@ -21,7 +21,7 @@
 
 - (BOOL)isValid
 {
-    return [[self class] isValidOfArray:self];
+    return [[self class] isValidOfArray:self] ;
 }
 
 + (NSArray *)letters;
